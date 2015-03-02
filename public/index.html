@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html ng-app="Todo">
+<html data-ng-app="Todo">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +17,14 @@
     <script src="js/main.js"></script>
 
 </head>
-<body ng-controller="mainController">
+<body data-ng-controller="mainController">
     <div class="container-fluid">
-        <todo-list></todo-list>
+        <div data-todo-list></div>
+        <!-- <todo-list></todo-list> -->
 
         <!-- FORM TO CREATE TODOS -->
-        <create-todo></create-todo>
+        <div data-create-todo></div>
+       <!--  <create-todo></create-todo> -->
     </div>
 
 </body>

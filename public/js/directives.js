@@ -3,14 +3,14 @@
 angular.module('directives',[])
     .directive('todoList', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             templateUrl: 'partials/todo-list.html'
         }        
     })
 
     .directive('createTodo', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             templateUrl: 'partials/create-todo.html'
         }
     })
