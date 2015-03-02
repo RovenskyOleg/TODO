@@ -1,0 +1,68 @@
+body { 
+    padding-top: 50px;
+}
+
+#todo-list {    
+    margin-bottom: 30px;
+}
+
+#todo-form { 
+    margin-bottom:50px; 
+}
+
+.done {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.my-tasks {
+    background: #ccc;
+    border-radius: 8px;
+}
+
+.task {
+    color: black;
+}
+
+.task-edit {
+    display: inline-block;
+}
+
+.change {
+    visibility: hidden;
+    display: inline-block;
+    position: absolute;
+    padding-left: 7px;
+    border-left: 1px solid gray;
+    right: 0;
+    opacity: 0;
+}
+
+.line:hover .change {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.line {
+    position: relative;
+    border-bottom: 1px solid gray;
+    height: 40px;    
+    padding-top: 7px;
+}
+
+.line:last-child {
+    border-bottom: none;
+}
+
+.wrapper {
+    padding-left: 10px;
+}
+
+.fa:hover {
+    color: white;
+}
+
+.fa-times:hover {
+    color: red;
+}
