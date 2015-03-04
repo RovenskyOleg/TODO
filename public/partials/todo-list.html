@@ -3,7 +3,7 @@
         <li class="checkbox line" ng-repeat="todo in todos" ng-model="doneTodo"> 
             <div class="wrapper">
                 <div>
-                    <input type="checkbox" ng-model="todo.done" ng-click="updateStatus(todo._id, {'done': !todo.done})" />
+                    <input type="checkbox" ng-model="todo.done" ng-click="updateStatus(todo._id, {'done': todo.done})" />
                 </div>
 
                 <div class="task-edit">

@@ -29,7 +29,8 @@ angular.module('todoController', ['directives'])
         };
 
         $scope.updateStatus = function (id, data) {          
-            Todos.edit(id, data)           
+            Todos.edit(id, data)  
+            console.log(id, data);         
         };
 
         $scope.edit = function(index){
