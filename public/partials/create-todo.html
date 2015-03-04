@@ -2,9 +2,9 @@
     <div class="col-sm-8 col-sm-offset-2 text-center">
         <form>
             <div class="form-group">                       
-                <input type="text" class="form-control input-lg text-center" placeholder="Add Task" ng-model="newTodo.text">
+                <input type="text" class="form-control input-lg text-center" placeholder="Add Task" ng-model="newTodo.text" ng-click="edit($index)">
             </div>
-            <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add TODO List</button>                 
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()" ng-click="edit($index)">Add TODO List</button>                 
         </form>
     </div>
 </div>

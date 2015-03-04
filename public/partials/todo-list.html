@@ -9,7 +9,7 @@
                 <div class="task-edit">
                     <span ng-class="{'done': todo.done}" ng-show="!editing[$index]" ng-dblclick="edit($index)" class="task">{{ todo.task }}</span>                           
                     <form ng-submit="updateTodo($index)">
-                        <input ng-show="editing[$index]" ng-model="todo.task" class="edit" ng-show="editing[$index]" />
+                        <input ng-show="editing[$index]" ng-model="todo.task" class="edit" />
                     </form>
                 </div>
 
