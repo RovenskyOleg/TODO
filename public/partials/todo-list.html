@@ -1,0 +1,36 @@
+<div id="todo-list" class="row">
+    <ul class="col-sm-8 col-sm-offset-2 my-tasks">
+        <li class=" line" ng-repeat="todo in todos" ng-model="doneTodo"> 
+            <div class="wrapper">
+                <div>
+                    <input type="checkbox" ng-model="todo.done" ng-click="updateStatus(todo._id, {'done': todo.done})" />
+                </div>
+
+                <div class="title-edit">
+                    <span ng-class="{'done': todo.done}" ng-show="!editing[$index]" ng-dblclick="edit($index)" class="title">{{ todo.title }}</span>                           
+                    <form ng-submit="updateTodo($index)">
+                        <input ng-show="editing[$index]" ng-model="todo.title" class="edit" />
+                    </form>
+                </div>
+
+                <div class="change">
+                    <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil-square-o fa-2x"></i>
+                    <i class="vertical-border"></i>
+                    <i ng-click="deleteTodo(todo._id)" class="fa fa-trash-o fa-2x"></i>
+                </div> 
+            </div> 
+
+            <div class="create-subtask">
+                <div class="add">
+                    <i class="fa fa-plus fa-2x"></i>
+                </div>
+
+                <form>
+                    <input class="create" placeholder="Start typing here to create a task" />
+                </form>
+
+                <button type="submit" class="btn btn-success btn-create">Add Task</button>  
+            </div>      
+        </li>
+    </ul>
+</div>

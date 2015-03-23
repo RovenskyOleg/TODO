@@ -1,0 +1,146 @@
+body { 
+    padding-top: 50px;
+}
+
+#todo-list {    
+    margin-bottom: 30px;
+}
+
+#todo-form { 
+    margin-top: 100px;
+    margin-bottom:50px; 
+}
+
+.done {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.my-tasks {
+    /*background: #ccc;*/
+    /*border-radius: 8px;*/
+}
+
+.title {
+    color: black;
+}
+
+.title-edit {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    display: inline-block;
+}
+
+.change {
+    visibility: hidden;
+    display: inline-block;
+    position: absolute;
+    padding-left: 7px;
+    padding-right: 10px;
+
+    top: 6px;
+    right: 0;
+    opacity: 0;
+}
+
+.vertical-border  {
+    margin-right: 5px;
+    border-left: 1px solid gray;
+}
+
+.wrapper:hover .change {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.line {
+    list-style: none;
+
+    background-color: #3e69a9;
+    position: relative;
+    border-bottom: 1px solid gray;
+
+    margin-top: 100px;
+    height: 40px;    
+    padding-top: 7px;
+}
+
+/*.line:last-child {
+    border-bottom: none;
+}*/
+
+.wrapper {
+    padding-left: 10px;
+}
+
+.fa-pencil-square-o, .fa-trash-o {
+    color: white;
+}
+
+.fa-times:hover {
+    color: red;
+}
+
+.title {
+    color: white;
+    font-weight: 500;
+}
+
+/*==== create sub-task ====*/
+.create-subtask {
+    height: 48px;
+    width: 100%;
+
+    background-color: #d2d2d2;
+
+    position: relative;
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.add {
+    position: absolute;
+    top: 9px;
+    left: 15px;
+}
+
+.fa-plus {
+    color: #5c9173;
+}
+
+.create {
+    position: absolute;
+
+    width: 640px;
+    height: 35px;
+
+    top: 6px;
+    left: 50px;
+}
+
+input::-webkit-input-placeholder {
+    padding-left: 10px;
+}
+
+input:-moz-placeholder {
+    padding-left: 10px;
+}
+
+input::-moz-placeholder {
+    padding-left: 10px;
+}
+
+input:-ms-input-placeholder {
+    padding-left: 10px;
+}
+
+.btn-create {
+    position: absolute;
+
+    width: 120px;
+
+    top: 6px;
+    left: 690px; 
+}
