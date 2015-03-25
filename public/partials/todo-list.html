@@ -14,9 +14,9 @@
                 </div>
 
                 <div class="change">
-                    <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil-square-o fa-2x"></i>
+                    <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
                     <i class="vertical-border"></i>
-                    <i ng-click="deleteTodo(todo._id)" class="fa fa-trash-o fa-2x"></i>
+                    <i ng-click="deleteTodo(todo._id)" class="fa fa-trash-o"></i>
                 </div> 
             </div> 
             
@@ -50,6 +50,15 @@
                                     <input ng-show="editing[$index]" ng-model="task.name" class="edit" />
                                 </form>
                             </div>
+
+                            <div class="change-task">
+                                <i class="fa fa-sort-asc"></i>
+                                <i class="fa fa-sort-desc"></i>
+                                <i class="vertical-border"></i>
+                                <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
+                                <i class="vertical-border"></i>
+                                <i ng-click="deleteTodo(todo._id)" class="fa fa-trash-o"></i>
+                            </div> 
                         </div>  
                     </li>
                 </ul>
