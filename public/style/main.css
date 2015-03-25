@@ -163,9 +163,15 @@ input:-ms-input-placeholder {
 
 .wrapper-task {
     position: relative;
+}
+
+.check-task {
+    width: 45px;
 
     padding-top: 10px;
     padding-bottom: 10px;
+
+    border-right: 4px double #FF0080;
 }
 
 .check-task input {
@@ -197,11 +203,28 @@ input:-ms-input-placeholder {
     display: inline-block;
     
     position: absolute;
-    top: 0;
 
     top: 10px;
     right: 40px;
    /* opacity: 0;*/
+}
+
+
+
+.fa-asc {
+    position: absolute;
+    top: 0px;
+    left: -15px;
+
+    height: 8px;
+    width: 15px;
+
+}
+
+.fa-sort-desc {
+    position: absolute;
+    top: 3px;
+    left: -15px;
 }
 
 /*.wrapper-task:hover .change-task {
