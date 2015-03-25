@@ -1,9 +1,11 @@
 angular.module('todoController', ['directives'])
 
-    .controller('mainController', function($scope, $http, Todos) {
+    .controller('mainController', function($scope, $http, Todos, Task) {
         $scope.newTodo = {};
         $scope.editing = [];
         $scope.todos = Todos;
+        //$scope.newTask = {};
+        $scope.tasks = [];
 
         Todos.get()
             .success(function(data) {
@@ -33,11 +35,11 @@ angular.module('todoController', ['directives'])
             console.log(id, data);         
         };
 
-        $scope.edit = function(index){
+        $scope.edit = function(index) {
             $scope.editing[index] = angular.copy($scope.todos[index]);
-        }
+        };
 
-        $scope.updateTodo = function(index){
+        $scope.updateTodo = function(index) {
             var todo = $scope.todos[index],
                 id = todo._id;    
                    
@@ -48,10 +50,33 @@ angular.module('todoController', ['directives'])
             }            
 
             $scope.editing[index] = false;
-        }
+        };
 
-        $scope.cancel = function(index){
+        $scope.cancel = function(index) {
             $scope.todos[index] = angular.copy($scope.editing[index]);
             $scope.editing[index] = false;
+        };
+// Task
+        Task.get()
+            .success(function(data) {
+                $scope.tasks = data;
+               // console.log(data)
+               // console.log($scope.tasks);
+            });
+
+        $scope.createTask = function(id, index) {
+    // Validate
+            Task.create(id, $scope.todos[index])
+                .success(function(data) {
+                    $scope.todos[index].task = {};
+                    
+                    $scope.tasks = data; // ??????????????
+                    console.log($scope.tasks)
+                    //$scope.addToList(index, $scope.tasks);
+                }); 
+        };
+
+        $scope.addToList = function(index, data) {
+            //console.log(data);
         }
     });

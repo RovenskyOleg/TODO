@@ -2,7 +2,7 @@ var Todo = require('./models/todo');
 
 module.exports = function(app) {
 
-// api ---------------------------------------------------------------------
+// Task Title ---------------------------------------------------------------------
     app.get('/api/todos', function(req, res) {
         Todo.find(function(err, todos) {
             if (err) {
@@ -61,26 +61,51 @@ module.exports = function(app) {
         });
     });
 
-    // subTasks -------------------------------------------------------------------
-    app.post('/api/todos/:todo_id/:task_id', function (req, res) {
-    Tasks.create({
-        _id: req.body.description
-    }, function(err, task) {
-        if (err) {
-            res.send(err);
-        }
-
-        Tasks.find(function (err, tasks) {
+// Tasks -------------------------------------------------------------------
+    app.get('/api/todos/tasks', function(req, res) {
+        Todo.find(function(err, tasks) {
             if (err) {
-                res.send(err);
+                res.send(err)
             }
 
+            console.log(tasks);
             res.json(tasks);
         });
     });
+
+    app.post('/api/todos/:todo_id/addTask', function(req, res) {
+        Todo.findByIdAndUpdate(req.params.todo_id, {$push: {'tasks': req.body.task}},
+            {safe: true, upsert: true},
+            
+            function(err, data) {
+                if (err) {
+                    res.send(err);
+                }
+                console.log(data)
+                res.send(data);                
+            }
+        );
     });
 
-    // application -------------------------------------------------------------
+    // app.post('/api/todos/:todo_id/:task_id', function (req, res) {
+    // Tasks.create({
+    //     _id: req.body.description
+    // }, function(err, task) {
+    //     if (err) {
+    //         res.send(err);
+    //     }
+
+    //     Tasks.find(function (err, tasks) {
+    //         if (err) {
+    //             res.send(err);
+    //         }
+
+    //         res.json(tasks);
+    //     });
+    // });
+    // });
+
+// application -------------------------------------------------------------
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');
     });

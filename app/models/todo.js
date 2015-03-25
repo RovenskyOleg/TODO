@@ -2,13 +2,13 @@
 var mongoose = require('mongoose');
 
 var Tasks = new mongoose.Schema({
-        description: String,
+        name: String,
         date: Date,
-        done: false
+        done: Boolean
     }),
     Todo = new mongoose.Schema({
         title : String,
-        //tasks: [Tasks],
+        tasks: [Tasks],
         done : Boolean
     });
 
