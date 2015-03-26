@@ -34,12 +34,12 @@ module.exports = function(app) {
     });
 
     app.post('/api/todos/:todoId', function(req, res) {
-        Todo.findByIdAndUpdate(req.params.todoId, req.body, function (err, post) {
+        Todo.findByIdAndUpdate(req.params.todoId, req.body, function (err, data) {
             if (err) {
                 res.send(err);
             }
             
-            res.json(post);
+            res.json(data);
         });
     });
 
@@ -85,12 +85,33 @@ module.exports = function(app) {
 
             data.tasks[req.body.index].remove();
             data.save(function (err) {
-              // do something
+                if (err) {
+                    res.send(err);
+                }
             });
 
             res.send(data);  
         });
     });
+
+    app.post('/api/todos/:todoId/updateStatus', function(req, res) {
+        Todo.findById(req.params.todoId, function (err, data) {
+            if (err) {
+                res.send(err);
+            }
+            
+            data.tasks[req.body.index].done = req.body.done;
+
+            data.save(function (err) {
+                if (err) {
+                    res.send(err);
+                }
+            });
+
+            res.send(data);    
+        });
+    });
+
 // application -------------------------------------------------------------
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');

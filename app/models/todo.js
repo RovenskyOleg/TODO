@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Tasks = new mongoose.Schema({
         name: String,
         date: Date,
-        done: Boolean
+        done: false
     }),
     Todo = new mongoose.Schema({
         title : String,

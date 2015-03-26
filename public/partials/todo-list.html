@@ -7,14 +7,14 @@
                 </div>
 
                 <div class="title-edit">
-                    <span ng-class="{'done': todo.done}" ng-show="!editing[$index]" ng-dblclick="edit($index)" class="title">{{ todo.title }}</span>                           
+                    <span ng-class="{'done': todo.done}" ng-show="!editing[$index]" ng-dblclick="editTitle($index)" class="title">{{ todo.title }}</span>                           
                     <form ng-submit="updateTodo($index)">
                         <input ng-show="editing[$index]" ng-model="todo.title" class="edit" />
                     </form>
                 </div>
 
                 <div class="change">
-                    <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
+                    <i ng-click="editTitle($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
                     <i class="vertical-border"></i>
                     <i ng-click="deleteTodo(todo._id)" class="fa fa-trash-o"></i>
                 </div> 
@@ -39,24 +39,24 @@
                 <ul>
                     <li class="line-task" ng-repeat="task in todo.tasks" ng-model="doneTask">
                         <div class="wrapper-task">
-                            <div class="check-task">
-                                <input type="checkbox" ng-model="task.done" ng-click="updateStatus(todo._id, {'done': todo.done})" />
-                            </div>
+        <div class="check-task">
+            <input type="checkbox" ng-model="task.done" ng-click="updateStatusTask(todo._id, {'done': task.done, 'index': $index})" />
+        </div>
 
-                            <div class="name-task">
-                                <span ng-class="{'done': task.done}" ng-show="!editing[$index]" ng-dblclick="edit($index)" class="title-task">{{ task.name }}</span> 
+        <div class="name-task">
+            <span ng-class="{'done': task.done}" ng-show="true" ng-dblclick="editTask($index)" class="title-task">{{ task.name }}</span> 
 
-                                <form ng-submit="updateTask($index)">
-                                    <input ng-show="editing[$index]" ng-model="task.name" class="edit" />
-                                </form>
-                            </div>
+            <form ng-submit="updateTask($index)">
+                <input ng-show="false" ng-model="task.name" class="edit" />
+            </form>
+        </div>
 
     <div class="change-task">
         <div class="fa-asc"><i class="fa fa-sort-asc"></i></div>
         <div class="fa-desc"><i class="fa fa-sort-desc"></i></div>
         
         <i class="vertical-border"></i>
-        <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
+        <i ng-click="editTask(todo._id, $index)" ng-show="true" class="fa fa-pencil"></i>
         <i class="vertical-border"></i>
         <i ng-click="deleteTask(todo._id, $index)" class="fa fa-trash-o"></i>
     </div> 
