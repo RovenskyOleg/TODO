@@ -15,6 +15,20 @@ angular.module('directives',[])
         }
     })
 
+    .directive('createTask', function() {
+        return {
+            restrict: 'A',
+            templateUrl: 'partials/create-task.html'
+        }
+    })
+
+    .directive('taskList', function() {
+        return {
+            restrict: 'A',
+            templateUrl: 'partials/task-list.html'
+        }
+    })
+
     // .directive('escapeTodo', function() {
     //     return function (scope, el, attrs) {
     //         $(el).focusout(function(){

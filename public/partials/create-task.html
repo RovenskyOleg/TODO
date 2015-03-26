@@ -1,0 +1,11 @@
+<div class="create-task">
+    <div class="add">
+        <i class="fa fa-plus fa-2x" data-ng-click="createTask(todo._id, $index)"></i>
+    </div>
+
+    <form data-ng-submit="createTask(todo._id, $index)">
+        <input class="create" placeholder="Start typing here to create a task" data-ng-model="todo.task.name" />
+    </form>
+
+    <button type="submit" class="btn btn-success btn-create" data-ng-click="createTask(todo._id, $index)">Add Task</button>  
+</div>

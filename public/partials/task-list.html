@@ -1,0 +1,29 @@
+<div class="task-list">
+    <ul>
+        <li class="line-task" data-ng-repeat="task in todo.tasks" data-ng-model="doneTask">
+            <div class="wrapper-task">
+                <div class="check-task">
+                    <input type="checkbox" data-ng-model="task.done" data-ng-click="updateStatus(todo._id, {'done': task.done, 'index': $index})" />
+                </div>
+
+                <div class="name-task">
+                    <span data-ng-class="{'done': task.done}" data-ng-show="!editingTask[task._id]" data-ng-dblclick="editTask(todo._id, task._id, $index)" class="title-task" data-ng-bind="task.name"></span> 
+
+                    <form data-ng-submit="updateTask(todo._id, task._id, $index)">
+                        <input data-ng-show="editingTask[task._id]" data-ng-model="task.name" class="edit-task" />
+                    </form>
+                </div>
+
+                <div class="change-task">
+                    <div class="fa-asc"><i class="fa fa-sort-asc"></i></div>
+                    <div class="fa-desc"><i class="fa fa-sort-desc"></i></div>
+                    
+                    <i class="vertical-border" data-ng-show="!editingTask[task._id]"></i>
+                    <i data-ng-click="editTask(todo._id, task._id, $index)" data-ng-show="!editingTask[task._id]" class="fa fa-pencil"></i>
+                    <i class="vertical-border"></i>
+                    <i data-ng-click="deleteTask(todo._id, $index)" class="fa fa-trash-o"></i>
+                </div> 
+            </div>  
+        </li>
+    </ul>
+</div>
