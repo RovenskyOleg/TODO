@@ -171,7 +171,7 @@ input:-ms-input-placeholder {
     padding-top: 10px;
     padding-bottom: 10px;
 
-    border-right: 4px double #FF0080;
+    border-right: 4px double #F6CEE3;
 }
 
 .check-task input {
@@ -227,6 +227,14 @@ input:-ms-input-placeholder {
     left: -15px;
 }
 
+.wrapper-task:hover {
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px; /* future proofing */
+    -khtml-border-radius: 0 0 10px 10px; /* for old Konqueror browsers */
+
+    background-color: #fcfed5;
+}
 /*.wrapper-task:hover .change-task {
     visibility: visible;
     opacity: 1;

@@ -21,7 +21,7 @@ angular.module('todoService', [])
                 return $http.get('/api/todos/tasks');
             },
             getTask: function (id) {
-                return $http.get('/api/todos/todos/'+id+'/tasks');
+                return $http.get('/api/todos/'+id+'/tasks');
             },
             create: function (id, taskData) {
                 return $http.post('/api/todos/'+id+'/addTask', taskData);

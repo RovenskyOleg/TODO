@@ -18,7 +18,6 @@ angular.module('todoController', ['directives'])
                     .success(function(data) {
                         $scope.newTodo = {}; // clear the form so our user is ready to enter another
                         $scope.todos = data;
-                        console.log(data)
                     });
             }
         };
@@ -56,27 +55,15 @@ angular.module('todoController', ['directives'])
             $scope.todos[index] = angular.copy($scope.editing[index]);
             $scope.editing[index] = false;
         };
-// Task
-        Task.get()
-            .success(function(data) {
-                $scope.tasks = data;
-               // console.log(data)
-               // console.log($scope.tasks);
-            });
 
+// Task
         $scope.createTask = function(id, index) {
     // Validate
             Task.create(id, $scope.todos[index])
                 .success(function(data) {
                     $scope.todos[index].task = {};
                     
-                    $scope.tasks = data; // ??????????????
-                    console.log($scope.tasks)
-                    //$scope.addToList(index, $scope.tasks);
+                    $scope.todos[index].tasks = data.tasks
                 }); 
         };
-
-        $scope.addToList = function(index, data) {
-            //console.log(data);
-        }
     });
