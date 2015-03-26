@@ -26,6 +26,9 @@ angular.module('todoService', [])
             
             updateStatus: function(id, data) {
                 return $http.post('/api/todos/'+id+'/updateStatus', data);
+            },
+            editTask: function(id, data) {
+                return $http.post('/api/todos/'+id+'/editTask', data);
             }
         }
     });

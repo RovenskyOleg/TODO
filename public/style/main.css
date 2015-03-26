@@ -25,6 +25,10 @@ body {
     transition: opacity 0.3s ease-out;
 }
 
+.icon {
+    padding-left: 7px;
+}
+
 .done {
     text-decoration: line-through;
     color: #ccc;

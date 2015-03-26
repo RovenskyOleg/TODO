@@ -8,8 +8,7 @@ var Tasks = new mongoose.Schema({
     }),
     Todo = new mongoose.Schema({
         title : String,
-        tasks: [Tasks],
-        done : Boolean
+        tasks: [Tasks]
     });
 
 module.exports = mongoose.model('Todo', Todo);

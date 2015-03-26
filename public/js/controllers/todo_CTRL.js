@@ -4,7 +4,6 @@ angular.module('todoController', ['directives'])
         $scope.newTodo = {};
         $scope.editing = [];
         $scope.editingTask = [];
-        $scope.editingTask = [];
         $scope.todos = Todos;
 
         Todos.get()
@@ -29,11 +28,6 @@ angular.module('todoController', ['directives'])
                 });
         };
 
-        $scope.updateStatus = function (id, data) {          
-            Todos.edit(id, data)  
-            console.log(id, data);         
-        };
-
         $scope.editTitle = function(index) {
             $scope.editing[index] = angular.copy($scope.todos[index]);
         };
@@ -44,40 +38,48 @@ angular.module('todoController', ['directives'])
                    
             if (($scope.todos[index].title) !== ($scope.editing[index].title)) {
                 Todos.edit(id, todo);
-            } else {
-                $scope.cancel(index);
-            }            
+            }          
 
-            $scope.editing[index] = false;
-        };
-
-        $scope.cancel = function(index) {
-            $scope.todos[index] = angular.copy($scope.editing[index]);
             $scope.editing[index] = false;
         };
 
 // Task
         $scope.createTask = function(id, index) {
-    // Validate
-            Task.create(id, $scope.todos[index])
-                .success(function(data) {
-                    $scope.todos[index].task = {};
-                    
-                    $scope.todos[index].tasks = data.tasks
-                }); 
+            if ($scope.todos[index].task != undefined) {
+                Task.create(id, $scope.todos[index])
+                    .success(function(data) {
+                        $scope.todos[index].task = {};
+                        
+                        $scope.todos[index].tasks = data.tasks
+                    }); 
+            }
         };
 
-        $scope.editTask = function(id, index) {
+        $scope.editTask = function(todo_id, task_id, index) {
+            $scope.visible = true;
             var position = {
-                'index': index
-            };
+                    'index': index
+                },
+                findTask = _.where($scope.todos, {'_id': todo_id});
 
-            $scope.editingTask[index] = angular.copy($scope.todos[index]);
-            console.log($scope.editingTask[index])
+            $scope.editingTask[task_id] = angular.copy(findTask[0].tasks[index]);
         };
 
-        $scope.updateStatusTask = function (id, data) {          
+        $scope.updateStatus = function (id, data) {          
             Task.updateStatus(id, data)       
+        };
+
+        $scope.updateTask = function(todo_id, task_id, index) {
+            var todo = _.where($scope.todos, {'_id': todo_id}),
+                nameTask = '';   
+
+                if (($scope.editingTask[task_id].name) !== todo[0].tasks[index].name) {
+                    nameTask = todo[0].tasks[index].name;
+
+                    Task.editTask(todo_id, {'index': index, 'nameTask': nameTask});
+                }      
+
+            $scope.editingTask[task_id] = false;
         };
 
         $scope.deleteTask = function(id, index) {   

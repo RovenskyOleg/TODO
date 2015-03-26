@@ -112,6 +112,24 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/api/todos/:todoId/editTask', function(req, res) {
+        Todo.findById(req.params.todoId, function (err, data) {
+            if (err) {
+                res.send(err);
+            }
+            
+            data.tasks[req.body.index].name = req.body.nameTask;
+
+            data.save(function (err) {
+                if (err) {
+                    res.send(err);
+                }
+            });
+            
+            res.send(data);    
+        });
+    });
+
 // application -------------------------------------------------------------
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');

@@ -2,8 +2,8 @@
     <ul class="col-sm-8 col-sm-offset-2">
         <li class="line" ng-repeat="todo in todos" ng-model="doneTodo"> 
             <div class="wrapper">
-                <div>
-                    <input type="checkbox" ng-model="todo.done" ng-click="updateStatus(todo._id, {'done': todo.done})" />
+                <div class="icon">
+                    <i class="fa fa-calendar"></i>
                 </div>
 
                 <div class="title-edit">
@@ -40,14 +40,14 @@
                     <li class="line-task" ng-repeat="task in todo.tasks" ng-model="doneTask">
                         <div class="wrapper-task">
         <div class="check-task">
-            <input type="checkbox" ng-model="task.done" ng-click="updateStatusTask(todo._id, {'done': task.done, 'index': $index})" />
+            <input type="checkbox" ng-model="task.done" ng-click="updateStatus(todo._id, {'done': task.done, 'index': $index})" />
         </div>
 
         <div class="name-task">
-            <span ng-class="{'done': task.done}" ng-show="true" ng-dblclick="editTask($index)" class="title-task">{{ task.name }}</span> 
+            <span ng-class="{'done': task.done}" ng-show="!editingTask[task._id]" ng-dblclick="editTask(todo._id, task._id, $index)" class="title-task">{{ task.name }}</span> 
 
-            <form ng-submit="updateTask($index)">
-                <input ng-show="false" ng-model="task.name" class="edit" />
+            <form ng-submit="updateTask(todo._id, task._id, $index)">
+                <input ng-show="editingTask[task._id]" ng-model="task.name" class="edit" />
             </form>
         </div>
 
@@ -55,8 +55,8 @@
         <div class="fa-asc"><i class="fa fa-sort-asc"></i></div>
         <div class="fa-desc"><i class="fa fa-sort-desc"></i></div>
         
-        <i class="vertical-border"></i>
-        <i ng-click="editTask(todo._id, $index)" ng-show="true" class="fa fa-pencil"></i>
+        <i class="vertical-border" ng-show="!editingTask[task._id]"></i>
+        <i ng-click="editTask(todo._id, task._id, $index)" ng-show="!editingTask[task._id]" class="fa fa-pencil"></i>
         <i class="vertical-border"></i>
         <i ng-click="deleteTask(todo._id, $index)" class="fa fa-trash-o"></i>
     </div> 
