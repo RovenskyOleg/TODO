@@ -77,6 +77,20 @@ module.exports = function(app) {
         );
     });
 
+    app.post('/api/todos/:todo_id/deleteTask', function(req, res) {
+        Todo.findById(req.params.todo_id, function (err, data) {
+            if (err) {
+                res.send(err);
+            }
+
+            data.tasks[req.body.index].remove();
+            data.save(function (err) {
+              // do something
+            });
+
+            res.send(data);  
+        });
+    });
 // application -------------------------------------------------------------
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');

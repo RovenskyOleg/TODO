@@ -51,15 +51,15 @@
                                 </form>
                             </div>
 
-                            <div class="change-task">
-                                <div class="fa-asc"><i class="fa fa-sort-asc"></i></div>
-                                <div class="fa-desc"><i class="fa fa-sort-desc"></i></div>
-                                
-                                <i class="vertical-border"></i>
-                                <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
-                                <i class="vertical-border"></i>
-                                <i ng-click="deleteTodo(todo._id)" class="fa fa-trash-o"></i>
-                            </div> 
+    <div class="change-task">
+        <div class="fa-asc"><i class="fa fa-sort-asc"></i></div>
+        <div class="fa-desc"><i class="fa fa-sort-desc"></i></div>
+        
+        <i class="vertical-border"></i>
+        <i ng-click="edit($index)" ng-show="!editing[$index]" class="fa fa-pencil"></i>
+        <i class="vertical-border"></i>
+        <i ng-click="deleteTask(todo._id, $index)" class="fa fa-trash-o"></i>
+    </div> 
                         </div>  
                     </li>
                 </ul>

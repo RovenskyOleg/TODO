@@ -5,7 +5,7 @@ angular.module('todoController', ['directives'])
         $scope.editing = [];
         $scope.todos = Todos;
         //$scope.newTask = {};
-        $scope.tasks = [];
+        //$scope.tasks = [];
 
         Todos.get()
             .success(function(data) {
@@ -66,4 +66,23 @@ angular.module('todoController', ['directives'])
                     $scope.todos[index].tasks = data.tasks
                 }); 
         };
+
+        $scope.deleteTask = function(id, index) {   
+            var position = {
+                'index': index
+            };
+            
+            Task.deleteTask(id, position)
+                .success(function(data) {
+                    var arr = _.map($scope.todos, function(obj) { 
+                        if (obj._id === data._id) {
+                            obj.tasks = data.tasks;
+                        }
+
+                        return obj;
+                    });                       
+                    
+                    $scope.todos = arr;
+                });
+        }
     });
