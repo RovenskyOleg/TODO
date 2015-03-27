@@ -228,21 +228,49 @@ input {
 .change-task i {
     color: #A4A4A4;
 }
-
-/*.fa-asc {
+/*
+.wrapper-fa {
     position: absolute;
-    top: 0px;
-    left: -15px;
+    top: 0;
+    left: -25px;
 
-    height: 8px;
-    width: 15px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}*/
 
+.fa-sort-asc, .fa-sort-desc {
+    line-height: 0;
+    display: block;
 }
 
-.fa-sort-desc {
+
+.fa-asc {
     position: absolute;
-    top: 3px;
+    top: -4px;
     left: -15px;
+    height: 15px;
+    width: 15px;
+
+    margin-bottom: 1px;
+}
+
+.fa-desc {
+    position: absolute;
+    top: 11px;
+    left: -15px;
+    height: 15px;
+    width: 15px;
+}
+
+.fa-sort-asc{
+    position: absolute;
+    top: 12px;
+}
+
+/*.fa-sort-desc {
+    position: absolute;
+    top: 0px;
 }*/
 
 .wrapper-task:hover {

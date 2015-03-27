@@ -15,11 +15,8 @@
                 </div>
 
                 <div class="change-task">
-                   <!--  <div class="fa-asc"><i class="fa fa-sort-asc"></i></div>
-                    <div class="fa-desc"><i class="fa fa-sort-desc" ng-click="updatePosition(todo._id, task._id, $index)"></i></div> -->
-
-                    <i class="fa fa-sort-asc" ng-click="up(todo._id, $index)"></i>
-                    <i class="fa fa-sort-desc" ng-click="down(todo._id, $index)"></i>
+                    <div class="fa-asc" ng-click="up(todo._id, $index)"><i class="fa fa-sort-asc"></i></div>
+                    <div class="fa-desc" ng-click="down(todo._id, $index)"><i class="fa fa-sort-desc"></i></div>
                     
                     <i class="vertical-border" data-ng-show="!editingTask[task._id]"></i>
                     <i data-ng-click="editTask(todo._id, task._id, $index)" data-ng-show="!editingTask[task._id]" class="fa fa-pencil"></i>
