@@ -17,12 +17,6 @@ input {
     font-size: 150%;
 }
 
-.wrap {
-    display: inline-block;
-    width: 100%;
-    height: 100px;
-}
-
 .wrapper {
     position: relative;
 
@@ -101,6 +95,12 @@ input {
 .title {
     color: white;
     font-weight: 500;
+}
+
+.wrap {
+    display: inline-block;
+    width: 100%;
+    height: 100px;
 }
 
 /*==== create task ====*/
@@ -182,15 +182,6 @@ input {
     margin: 1px 0 0 15px;
 }
 
-.edit-task {
-    position: absolute;
-    top: 1px;
-    left: -14px;
-
-    width: 644px;
-    height: 35px; 
-}
-
 .name-task {
     position: absolute;
     top: 0px;
@@ -198,6 +189,8 @@ input {
 }
 
 .title-task {
+    position: relative;
+
     color: #A4A4A4;
     
     display: inline-block;
@@ -209,41 +202,35 @@ input {
     border-right: 1px solid #D8D8D8;
 }
 
-.name-task .edit {
-    width: 630px; 
+.edit-task {
+    position: absolute;
+
+    top: 1px;
+    left: -14px;
+
+    width: 644px;
+    height: 35px; 
 }
-/* ================== */
 
 .change-task {
-    /*visibility: hidden;*/
+    visibility: hidden;
     display: inline-block;
     
     position: absolute;
 
     top: 10px;
     right: 6%;
-   /* opacity: 0;*/
+    opacity: 0;
 }
 
 .change-task i {
     color: #A4A4A4;
 }
-/*
-.wrapper-fa {
-    position: absolute;
-    top: 0;
-    left: -25px;
-
-    width: 20px;
-    height: 20px;
-    text-align: center;
-}*/
 
 .fa-sort-asc, .fa-sort-desc {
     line-height: 0;
     display: block;
 }
-
 
 .fa-asc {
     position: absolute;
@@ -268,25 +255,21 @@ input {
     top: 12px;
 }
 
-/*.fa-sort-desc {
-    position: absolute;
-    top: 0px;
-}*/
-
 .wrapper-task:hover {
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px; /* future proofing */
-    -khtml-border-radius: 0 0 10px 10px; /* for old Konqueror browsers */
+    border-radius: 0 0 10px 10px; 
+    -khtml-border-radius: 0 0 10px 10px;
 
     background-color: #fcfed5;
 }
-/*.wrapper-task:hover .change-task {
+.wrapper-task:hover .change-task {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.3s ease-out;
-}*/
+}
 
+/* ================== */
 
 #todo-create {
     margin-bottom: 40px;

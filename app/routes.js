@@ -3,7 +3,7 @@ var Todo = require('./models/todo');
 module.exports = function(app) {
 
 // Task Title ---------------------------------------------------------------------
-    app.get('/api/todos', function(req, res) {
+    app.get('/todos', function(req, res) {
         Todo.find(function(err, todos) {
             if (err) {
                 res.send(err)
@@ -13,7 +13,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/todos', function(req, res) {       
+    app.post('/todos', function(req, res) {       
         Todo.create({
             title : req.body.text,
             done : false
@@ -33,7 +33,7 @@ module.exports = function(app) {
 
     });
 
-    app.post('/api/todos/:todoId', function(req, res) {
+    app.post('/todos/:todoId', function(req, res) {
         Todo.findByIdAndUpdate(req.params.todoId, req.body, function (err, data) {
             if (err) {
                 res.send(err);
@@ -43,7 +43,7 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/todos/:todo_id', function(req, res) {
+    app.delete('/todos/:todo_id', function(req, res) {
         Todo.remove({
             _id : req.params.todo_id
         }, function(err, todo) {
@@ -63,7 +63,7 @@ module.exports = function(app) {
 
 // Tasks -------------------------------------------------------------------
 
-    app.post('/api/todos/:todo_id/addTask', function(req, res) {
+    app.post('/todos/:todo_id/addTask', function(req, res) {
         Todo.findByIdAndUpdate(req.params.todo_id, {$push: {'tasks': req.body.task}},
             {safe: true, upsert: true},
             
@@ -77,7 +77,7 @@ module.exports = function(app) {
         );
     });
 
-    app.post('/api/todos/:todo_id/deleteTask', function(req, res) {
+    app.post('/todos/:todo_id/deleteTask', function(req, res) {
         Todo.findById(req.params.todo_id, function (err, data) {
             if (err) {
                 res.send(err);
@@ -94,7 +94,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/todos/:todoId/updateStatus', function(req, res) {
+    app.post('/todos/:todoId/updateStatus', function(req, res) {
         Todo.findById(req.params.todoId, function (err, data) {
             if (err) {
                 res.send(err);
@@ -112,7 +112,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/todos/:todoId/editTask', function(req, res) {
+    app.post('/todos/:todoId/editTask', function(req, res) {
         Todo.findById(req.params.todoId, function (err, data) {
             if (err) {
                 res.send(err);
@@ -130,7 +130,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/todos/:todoId/editPositionTask', function(req, res) {
+    app.post('/todos/:todoId/editPositionTask', function(req, res) {
         Todo.findById(req.params.todoId, function (err, data) {
             if (err) {
                 res.send(err);
