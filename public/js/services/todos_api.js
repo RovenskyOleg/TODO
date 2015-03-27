@@ -20,15 +20,18 @@ angular.module('todoService', [])
             create: function (id, taskData) {
                 return $http.post('/api/todos/'+id+'/addTask', taskData);
             },
-            deleteTask: function (id, data) {
+            delete: function (id, data) {
                 return $http.post('/api/todos/'+id+'/deleteTask', data);
             },
             
             updateStatus: function(id, data) {
                 return $http.post('/api/todos/'+id+'/updateStatus', data);
             },
-            editTask: function(id, data) {
+            edit: function(id, data) {
                 return $http.post('/api/todos/'+id+'/editTask', data);
+            },
+            editPosition: function(id, data) {
+                return $http.post('/api/todos/'+id+'/editPositionTask', data);
             }
         }
     });

@@ -65,8 +65,14 @@ angular.module('todoController', ['directives'])
             $scope.editingTask[task_id] = angular.copy(findTask[0].tasks[index]);
         };
 
-        $scope.updateStatus = function (id, data) {          
+        $scope.updateStatus = function(id, data) {          
             Task.updateStatus(id, data)       
+        };
+
+        $scope.findTodo = function(todo_id) {
+            var todo = _.where($scope.todos, {'_id': todo_id});
+
+            return todo;
         };
 
         $scope.updateTask = function(todo_id, task_id, index) {
@@ -76,10 +82,45 @@ angular.module('todoController', ['directives'])
                 if (($scope.editingTask[task_id].name) !== todo[0].tasks[index].name) {
                     nameTask = todo[0].tasks[index].name;
 
-                    Task.editTask(todo_id, {'index': index, 'nameTask': nameTask});
+                    Task.edit(todo_id, {'index': index, 'nameTask': nameTask});
                 }      
 
             $scope.editingTask[task_id] = false;
+        };
+
+        $scope.updatePosition = function(todo_id, index, position) {
+            var todo = $scope.findTodo(todo_id),                
+                data = todo[0].tasks,
+                el = todo[0].tasks[index];
+            
+            data.splice(index, 1);
+            data.splice(position, 0, el);
+
+            Task.editPosition(todo_id, data);       
+        };
+
+        $scope.up = function(todo_id, index) {
+            var position;
+
+            if (index >= 1) {
+                position = index - 1;
+                $scope.updatePosition(todo_id, index, position);
+            } else {
+                console.log('Not correct');
+            }
+        };
+
+        $scope.down = function(todo_id, index) {
+            var position,
+                todo = $scope.findTodo(todo_id),
+                lengthArr = todo[0].tasks.length;
+
+            if (index < (lengthArr - 1)) {
+                position = index + 1;
+                $scope.updatePosition(todo_id, index, position);
+            } else {
+                console.log('Not correct');
+            }
         };
 
         $scope.deleteTask = function(id, index) {   
@@ -87,7 +128,7 @@ angular.module('todoController', ['directives'])
                 'index': index
             };
             
-            Task.deleteTask(id, position)
+            Task.delete(id, position)
                 .success(function(data) {
                     var arr = _.map($scope.todos, function(obj) { 
                         if (obj._id === data._id) {

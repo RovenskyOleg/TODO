@@ -125,6 +125,24 @@ module.exports = function(app) {
                     res.send(err);
                 }
             });
+
+            res.send(data);    
+        });
+    });
+
+    app.post('/api/todos/:todoId/editPositionTask', function(req, res) {
+        Todo.findById(req.params.todoId, function (err, data) {
+            if (err) {
+                res.send(err);
+            }
+            
+            data.tasks = req.body;
+
+            data.save(function (err) {
+                if (err) {
+                    res.send(err);
+                }
+            });
             
             res.send(data);    
         });
