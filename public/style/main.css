@@ -1,6 +1,15 @@
 body { 
+    width: 100%;
+    background: url('../images/background.jpg') no-repeat center center fixed; 
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     background-color: #FACC2E;
+    
     padding-top: 35px;
+   
 }
 
 input {
@@ -102,6 +111,32 @@ input {
     width: 100%;
     height: 100px;
 }
+
+/*===== todo create ========*/
+
+#todo-create {
+    margin-bottom: 40px;
+}
+
+.combine {
+    position: relative;
+}
+
+.combine i {
+    color: #424242;
+}
+
+.btn-lg {
+    padding-left: 45px;
+}
+
+.btn-plus {
+    position: absolute;
+    top: 7px;
+    
+    padding-left: 10px;
+}
+/*=====================*/
 
 /*==== create task ====*/
 .create-task {
@@ -221,14 +256,14 @@ input {
 }
 
 .change-task {
-    visibility: hidden;
+   /* visibility: hidden;*/
     display: inline-block;
     
     position: absolute;
 
     top: 10px;
     right: 6%;
-    opacity: 0;
+   /* opacity: 0;*/
 }
 
 .change-task i {
@@ -258,13 +293,13 @@ input {
     width: 15px;
 }
 
-.fa-sort-asc{
+.fa-sort-asc {
     position: absolute;
     top: 12px;
     z-index: 2;
 }
 
-.fa-sort-desc{
+.fa-sort-desc {
     position: absolute;
     top: 1px;
 }
@@ -278,17 +313,13 @@ input {
     background-color: #fcfed5;
 }
 
-.wrapper-task:hover .change-task {
+/*.wrapper-task:hover .change-task {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.3s ease-out;
-}
+}*/
 
 /* ================== */
-
-#todo-create {
-    margin-bottom: 40px;
-}
 
 .font-small {
     color: #fff;
