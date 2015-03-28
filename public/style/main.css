@@ -256,14 +256,14 @@ input {
 }
 
 .change-task {
-   /* visibility: hidden;*/
+    visibility: hidden;
     display: inline-block;
     
     position: absolute;
 
     top: 10px;
     right: 6%;
-   /* opacity: 0;*/
+    opacity: 0;
 }
 
 .change-task i {
@@ -313,11 +313,11 @@ input {
     background-color: #fcfed5;
 }
 
-/*.wrapper-task:hover .change-task {
+.wrapper-task:hover .change-task {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.3s ease-out;
-}*/
+}
 
 /* ================== */
 
