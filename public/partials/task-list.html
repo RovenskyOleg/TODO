@@ -10,7 +10,7 @@
                     <span data-ng-class="{'done': task.done}" data-ng-show="!editingTask[task._id]" data-ng-dblclick="editTask(todo._id, task._id, $index)" class="title-task" data-ng-bind="task.name"></span> 
 
                     <form data-ng-submit="updateTask(todo._id, task._id, $index)">
-                        <input data-ng-show="editingTask[task._id]" data-ng-model="task.name" class="edit-task" />
+                        <input data-ng-show="editingTask[task._id]" data-ng-model="task.name" class="edit-task" data-ng-maxlength="255" required />
                     </form>
                 </div>
 

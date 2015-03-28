@@ -12,6 +12,9 @@ angular.module('todoService', [])
             },
             edit: function(id, data) {
                 return $http.post('/todos/' + id, data);
+            },
+            updateDate: function(id, data) {
+                return $http.post('/todos/'+id+'/updateDate', data);
             }
         }
     })

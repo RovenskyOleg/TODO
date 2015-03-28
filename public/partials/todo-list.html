@@ -3,7 +3,10 @@
         <li class="line" data-ng-repeat="todo in todos" data-ng-model="doneTodo"> 
             <div class="wrapper">
                 <div class="icon">
-                    <i class="fa fa-calendar"></i>
+                   <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" ></i></span>
+                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-describedby="basic-addon1"  data-ng-model="todo.date"  ng-change="updateDate(todo._id, $index)"jqdatepicker />
+                    </div>
                 </div>
 
                 <div class="title-edit">

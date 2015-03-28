@@ -43,6 +43,24 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/todos/:todoId/updateDate', function(req, res) {
+        Todo.findById(req.params.todoId, function (err, data) {
+            if (err) {
+                res.send(err);
+            }
+            
+            data.date = req.body.date;
+
+            data.save(function (err) {
+                if (err) {
+                    res.send(err);
+                }
+            });
+
+            res.send(data);    
+        });
+    });
+
     app.delete('/todos/:todo_id', function(req, res) {
         Todo.remove({
             _id : req.params.todo_id

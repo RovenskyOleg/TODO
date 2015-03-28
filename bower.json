@@ -1,0 +1,20 @@
+{
+  "name": "Todo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/RovenskyOleg/TODO",
+  "authors": [
+    "Oleg Rovensky <RovenskyOleg@i.ua>"
+  ],
+  "description": "Todo List",
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

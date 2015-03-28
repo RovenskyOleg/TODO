@@ -1,5 +1,4 @@
 angular.module('todoController', ['directives'])
-
     .controller('mainController', function($scope, $http, Todos, Task) {
         $scope.newTodo = {};
         $scope.editing = [];
@@ -41,6 +40,14 @@ angular.module('todoController', ['directives'])
             }          
 
             $scope.editing[index] = false;
+        };
+
+        $scope.updateDate = function(todo_id, index) {
+            var date = {
+                'date': $scope.todos[index].date
+            }
+
+            Todos.updateDate(todo_id, date) 
         };
 
 // Task
@@ -141,4 +148,4 @@ angular.module('todoController', ['directives'])
                     $scope.todos = arr;
                 });
         }
-    });
+    })
