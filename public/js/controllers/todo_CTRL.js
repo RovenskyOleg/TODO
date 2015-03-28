@@ -5,7 +5,6 @@ angular.module('todoController', ['directives'])
         $scope.editing = [];
         $scope.editingTask = [];
         $scope.todos = {};
-        //$scope.todos = {};
 
         // $scope.hideSuccesAlert = function() {
         //     $rootScope.messageSuccess = false;
