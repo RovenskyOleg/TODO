@@ -1,4 +1,6 @@
 <div id="todo-list" class="row">
+    <a ng-href="#/logout" class="btn btn-default btn-sm col-sm-offset-1" data-ng-click="logout()">Logout</a>
+
     <ul class="col-sm-8 col-sm-offset-2">
         <li class="line" data-ng-repeat="todo in todos" data-ng-model="doneTodo"> 
             <div class="wrapper">
@@ -19,7 +21,7 @@
                 <div class="change">
                     <i data-ng-click="editTitle($index)" data-ng-show="!editing[$index]" class="fa fa-pencil"></i>
                     <i class="vertical-border"></i>
-                    <i data-ng-click="deleteTodo(todo._id)" class="fa fa-trash-o"></i>
+                    <i data-ng-click="deleteTodo(todo._id, $index)" class="fa fa-trash-o"></i>
                 </div> 
             </div> 
             

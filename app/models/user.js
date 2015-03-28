@@ -6,9 +6,14 @@ var Tasks = new mongoose.Schema({
         done: false
     }),
     Todo = new mongoose.Schema({
-        title : String,
+        title: String,
         date: String,
         tasks: [Tasks]
+    }),
+    User = new mongoose.Schema({
+        email : String,
+        password: String,
+        todo: [Todo]
     });
 
-module.exports = mongoose.model('Todo', Todo);
+module.exports = mongoose.model('User', User);

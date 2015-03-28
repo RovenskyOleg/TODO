@@ -22,8 +22,8 @@ input {
 
     background-color: #3e69a9;
 
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     padding-left: 10px;
 }
 
@@ -44,7 +44,7 @@ input {
 
 .title-edit {
     position: absolute;
-    top: 22px;
+    top: 18px;
     left: 160px;
 }
 
@@ -66,7 +66,7 @@ input {
     padding-left: 7px;
     padding-right: 10px;
 
-    top: 22px;
+    top: 18px;
     right: 8px;
     opacity: 0;
 }
@@ -196,7 +196,7 @@ input {
     color: #A4A4A4;
     
     display: inline-block;
-    width: 630px;
+    width: 645px;
     height: 100%;
 
     padding-top: 10px;
@@ -215,7 +215,7 @@ input {
     top: 1px;
     left: 44px;
 
-    width: 630px;
+    width: 645px;
     height: 100%; 
     border-right: 1px solid #D8D8D8;
 }

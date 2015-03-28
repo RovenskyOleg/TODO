@@ -54,3 +54,10 @@ angular.module('directives',[])
             }
         }
     })
+
+    // .directive('alertInfo', function() {
+    //     return {
+    //         restrict: 'A',
+    //         templateUrl: 'partials/alert-info.html'
+    //     }        
+    // })
