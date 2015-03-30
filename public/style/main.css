@@ -16,6 +16,28 @@ input {
     padding-left: 15px;
 }
 
+/*==== login =========*/
+h1 {
+    margin-bottom: 10px;
+}
+
+.title-login {
+    font-size: 150%;
+    padding-left: 5px;
+}
+/*=============*/
+
+/*==== signup =========*/
+h1 {
+    margin-bottom: 10px;
+}
+
+.title-signup {
+    font-size: 150%;
+    padding-left: 5px;
+}
+/*=============*/
+
 .title-todo {
     text-align: center;
     margin-bottom: 40px;
